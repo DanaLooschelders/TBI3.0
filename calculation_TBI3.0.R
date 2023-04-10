@@ -22,7 +22,7 @@ for(s in 1:6){
 input <- read_excel("data_input_TBI3.0.xlsx", sheet = s+1)
 
 #check if there are input parameters in every data column
-if(all(colSums(input[,3:6])==0)){ #if no input parameters, skip
+if(all(colSums(input[,3:3+ length(input%>%select(is.numeric))-2])==0)){ #if no input parameters, skip
   next
   }else{ #if sheet has input parameters, execute loop
 input <- input[, colSums(input != 0, na.rm = TRUE) > 0]
